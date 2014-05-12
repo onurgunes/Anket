@@ -45,7 +45,6 @@ public class Survey extends Activity implements OnClickListener{
 		
 		//ids önceki ekranda (choosequestions) seçilen soru sayýsýdýr
 		for (int i = 0; i < ids.size(); i++) {
-//			Log.i("ids.size()",String.valueOf(ids.size()));
 			wrapperLayout = new LinearLayout(this);
 			radioGroup = new RadioGroup(this);
 			txtQuestion = new TextView(this);
@@ -68,7 +67,7 @@ public class Survey extends Activity implements OnClickListener{
 			
 			//ids dizisinin ilk elemanýnýn seçenek sayýsý
 			for (int j = 0; j < optionCount; j++) {
-//				Log.i("Radio buton kýsmýna geldi","");
+//				Log.i("Radio butonlar oluþturuluyor","");
 				RadioButton rButton = new RadioButton(this);
 				rButton.setId(item.getOptions().get(j).getId());
 				rButton.setText(item.getOptions().get(j).getOption());
@@ -80,7 +79,6 @@ public class Survey extends Activity implements OnClickListener{
 			ll.addView(layoutQuestion);
 			ll.addView(wrapperLayout,layoutParams);
 		}
-		
 	}
 
 	@Override
