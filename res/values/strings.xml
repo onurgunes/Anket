@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Anket</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_add_question">Soru Ekle</string>
+    <string name="title_activity_delete_question">Soru Sil</string>
+    <string name="title_activity_show_statistics">İstatistikleri Göster</string>
+    <string name="title_activity_choose_questions">Sorulardan Seç</string>
+    <string name="AddQuestionHint">Soruyu Giriniz</string>
+    <string name="btnDone">Bitti</string>
+    <string name="AddOption">Şık Ekle</string>
+    <string name="ChooseInExistingQuestion">Varolan Sorulardan Seç</string>
+    <string name="AddQuestion">Soru Ekle</string>
+    <string name="DeleteQuestion">Soru Sil</string>
+    <string name="ShowStatistics">İstatistikleri Göster</string>
+    <string name="title_activity_survey">Survey</string>
+
+</resources>
