@@ -31,9 +31,10 @@ public class DeleteQuestion extends Activity implements OnClickListener{
 		
 		ll = (LinearLayout) findViewById(R.id.llQuestions);
 		btnDeleteItems = (Button) findViewById(R.id.btnStartSurvey);
+		btnDeleteItems.setBackground(getResources().getDrawable(R.drawable.danger_button));
 		
 		btnDeleteItems.setOnClickListener(this);
-		btnDeleteItems.setText("Sorularý Sil");
+		btnDeleteItems.setText(getResources().getString(R.string.DeleteQuestion));
 		
 		questionList = db.getAllQuestions(); 
 		ids = new ArrayList<Integer>();
@@ -79,7 +80,7 @@ public class DeleteQuestion extends Activity implements OnClickListener{
 				}
 				onCreate(null);
 			} catch (Exception e) {
-				Toast.makeText(DeleteQuestion.this, "Silme iþlemi esnasýnda sorun oluþtu", Toast.LENGTH_SHORT).show();
+				Toast.makeText(DeleteQuestion.this, getResources().getString(R.string.error_message), Toast.LENGTH_SHORT).show();
 			}
 		}
 	}

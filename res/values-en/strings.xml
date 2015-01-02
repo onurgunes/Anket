@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Survey</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_add_question">Add Question</string>
+    <string name="title_activity_delete_question">Delete Question</string>
+    <string name="title_activity_show_statistics">Statistics</string>
+    <string name="title_activity_choose_questions">Choose Questions</string>
+    <string name="AddQuestionHint">Question Body</string>
+    <string name="btnDone">Done</string>
+    <string name="AddOption">Add Option</string>
+    <string name="ChooseInExistingQuestion">Choose Questions</string>
+    <string name="AddQuestion">Add Question</string>
+    <string name="DeleteQuestion">Delete Question</string>
+    <string name="ShowStatistics">Statistics</string>
+    <string name="title_activity_survey">Survey</string>
+    <string name="finish_survey">Finish Survey</string>
+    <string name="title_activity_import_export_excel">Data Import/Export</string>
+    <string name="start_survey">Start Survey</string>
+    <string name="add_question_option">Add Option</string>
+	<string name="cancel_to_add_option">Cancel</string>
+    <string name="accept_to_add_option">Done</string>
+    <string name="clean_options">Clean</string>
+    <string name="question_added_message_success">Question added successfully!</string>
+    <string name="survey_added_message_success">Survey saved successfully!</string>
+    <string name="error_message">A error has occurred.</string>
+    <string name="question_added_message_warning_1">Please, add question body.</string>
+    <string name="question_added_message_warning_2">Please, add option.</string>
+    <string name="statistics_resetted">Statistics resetted successfully!</string>
+    <string name="reset_statitics">Reset Statistics</string>
+    <string name="import_from_excel">Import Questions From Excel</string>
+    <string name="export_statistics_to_excel">Export Statistics To Excel</string>
+    <string name="export_questions_to_excel">Export Questions To Excel</string>
+    <string name="import_export_guide">Soru ya da istatistik içe aktar / dışa aktar işlemleriyle ilgili temel bilgilendirme</string>
+</resources>

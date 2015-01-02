@@ -47,20 +47,22 @@ public class AddQuestion extends Activity {
 		input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         input.setTextSize(16);
-        builder.setTitle("Soruya Seçenek Ekle");
+        builder.setTitle(getResources().getString(R.string.add_question_option));
         builder.setView(input);
         //Seçenek ekleme penceresinde tamam a basýldýðýnda yapýlacaklar
-        builder.setPositiveButton("Ekle", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getResources().getString(R.string.accept_to_add_option), new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				String inputText = input.getText().toString();
-				options.add(inputText);
-				tvOptions.setText(tvOptions.getText() + "\n" + inputText);
-				input.setText("");
+				if (!inputText.toString().isEmpty()) {
+					options.add(inputText);
+					tvOptions.setText(tvOptions.getText() + "\n" + inputText);
+					input.setText("");
+				}
 			}
 		});
-        builder.setNegativeButton("Ýptal", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getResources().getString(R.string.cancel_to_add_option), new DialogInterface.OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -90,23 +92,22 @@ public class AddQuestion extends Activity {
 				try {
 					question = tvQuestion.getText().toString();
 					if (question.isEmpty()) {
-						throw new IllegalStateException("Soru boþ býrakýlamaz");
+						throw new IllegalStateException(getResources().getString(R.string.question_added_message_warning_1));
 					}
 					else if(options.isEmpty()){
-						throw new IllegalStateException("Seçenek girmediniz");
+						throw new IllegalStateException(getResources().getString(R.string.question_added_message_warning_2));
 					}
 					db.addQuestionAndOptions(question, options);
-					Toast.makeText(AddQuestion.this, "Soru baþarýyla eklendi", Toast.LENGTH_SHORT).show();
+					Toast.makeText(AddQuestion.this, getResources().getString(R.string.question_added_message_success), Toast.LENGTH_SHORT).show();
 					AddQuestion.this.finish();	//Activity'i sonlandýr
 				} catch (Exception e) {
 					if (e instanceof IllegalStateException) {
 						Toast.makeText(AddQuestion.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 					}
 					else{
-						Toast.makeText(AddQuestion.this, "Soru eklenirken bir sorunla karþýlaþýldý", Toast.LENGTH_SHORT).show();
+						Toast.makeText(AddQuestion.this, getResources().getString(R.string.error_message), Toast.LENGTH_SHORT).show();
 					}
 				}
-				
 			}
 		});
 		

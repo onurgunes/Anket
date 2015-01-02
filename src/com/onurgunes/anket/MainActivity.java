@@ -13,7 +13,8 @@ public class MainActivity extends Activity implements OnClickListener{
 	Button btnChooseExistingQuestions,
 			btnAddQuestion,
 			btnDeleteQuestion,
-			btnShowStatistics;
+			btnShowStatistics,
+			btnExcelOperations;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +26,13 @@ public class MainActivity extends Activity implements OnClickListener{
         btnAddQuestion = (Button) findViewById(R.id.btnAddQuestion);
         btnDeleteQuestion = (Button) findViewById(R.id.btnDeleteQuestion);
         btnShowStatistics = (Button) findViewById(R.id.btnShowStatistics);
+        btnExcelOperations = (Button) findViewById(R.id.btnExcelOperations);
         
         btnChooseExistingQuestions.setOnClickListener(this);
         btnAddQuestion.setOnClickListener(this);
         btnDeleteQuestion.setOnClickListener(this);
         btnShowStatistics.setOnClickListener(this);
+        btnExcelOperations.setOnClickListener(this);
         
     }   
     @Override
@@ -54,6 +57,10 @@ public class MainActivity extends Activity implements OnClickListener{
 		}
 		else if(v.getId() == btnShowStatistics.getId()){
 			Intent intent = new Intent(MainActivity.this, ShowStatistics.class);
+			MainActivity.this.startActivity(intent);
+		}
+		else if(v.getId() == btnExcelOperations.getId()){
+			Intent intent = new Intent(MainActivity.this, ImportExportExcel.class);
 			MainActivity.this.startActivity(intent);
 		}
 	}

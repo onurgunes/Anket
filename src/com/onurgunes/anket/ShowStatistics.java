@@ -31,12 +31,11 @@ public class ShowStatistics extends Activity implements OnClickListener{
         ll = (LinearLayout) findViewById(R.id.llQuestions);
         
         resetButton.setOnClickListener(this);
-        resetButton.setText("Verileri sýfýrla");
+        resetButton.setText(getResources().getString(R.string.reset_statitics));
         
 		items = db.getStatistics();
 
-		for (int i = 0; i < items.size(); i++) {	
-//			Log.i("Soru" + (i+1),items.get(i).getQuestion().getQuestion());
+		for (int i = 0; i < items.size(); i++) {
 			wrapperLayout = new LinearLayout(this);
 			TextView tvQuestion = new TextView(this);
 			LinearLayout layout = new LinearLayout(this);
@@ -46,20 +45,35 @@ public class ShowStatistics extends Activity implements OnClickListener{
 			textViewParams.setMargins(0, 0, 10, 0);
 			
 			tvQuestion.setText(items.get(i).getQuestion().getQuestion());
+			tvQuestion.setTextSize(16);
+			
 			ll.addView(tvQuestion);
+			
+			int sumOfSelectedOptions = 0;
+			for (int k = 0; k < items.get(i).getOptions().size(); k++) {
+				sumOfSelectedOptions += items.get(i).getOptions().get(k).getSelectedCount();
+			}
+			
 			for (int j = 0; j < items.get(i).getOptions().size(); j++) {
+				
 				TextView tvStatistic = new TextView(this);
 				TextView tvOption = new TextView(this);
 				
-				tvQuestion.setTextSize(16);
-				tvStatistic.setTextSize(16);
+				tvStatistic.setTextSize(20);
 				tvOption.setTextSize(16);
 				tvStatistic.setTypeface(null,Typeface.BOLD);
-				tvOption.setTypeface(null,Typeface.BOLD);
 				
-				tvStatistic.setText( String.valueOf(items.get(i).getOptions().get(j).getSelectedCount()) );
+				if (sumOfSelectedOptions < 1) {
+					tvStatistic.setText("% 0 ");
+				}
+				else
+				{
+					tvStatistic.setText("%" + 
+							String.valueOf( ( items.get(i).getOptions().get(j).getSelectedCount() * 100 ) / sumOfSelectedOptions ) );
+				}
+				
+				
 				tvOption.setText( items.get(i).getOptions().get(j).getOption() );
-//				Log.i("SecilimSayisi" + (i+1) , String.valueOf(items.get(i).getOptions().get(j).getSelectedCount() ));
 				
 				LinearLayout newLine = new LinearLayout(this);
 				
@@ -83,14 +97,13 @@ public class ShowStatistics extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		//Týklanýnca veriler resetlenecek
-//		Log.i("Idler",String.valueOf(v.getId() + " " + resetButton.getId()));
 		if (v.getId() == resetButton.getId()) {
 			try {
 				db.resetStatistics();
-				Toast.makeText(ShowStatistics.this, "Deðerler sýfýrlandý", Toast.LENGTH_SHORT).show();
+				Toast.makeText(ShowStatistics.this, getResources().getString(R.string.statistics_resetted) , Toast.LENGTH_SHORT).show();
 				onCreate(null);
 			} catch (Exception e) {
-				Toast.makeText(ShowStatistics.this, "Bir hata oluþtu", Toast.LENGTH_SHORT).show();
+				Toast.makeText(ShowStatistics.this, getResources().getString(R.string.error_message), Toast.LENGTH_SHORT).show();
 			}
 		}
 	}

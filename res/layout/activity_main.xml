@@ -7,30 +7,57 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#ffffff">
 
     <Button
         android:id="@+id/btnChooseExistingQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ChooseInExistingQuestion" />
+        android:text="@string/ChooseInExistingQuestion"
+        android:drawableLeft="@drawable/ic_action_accept"
+        android:background="@drawable/main_menu_button"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="5dip" />
 
     <Button
         android:id="@+id/btnAddQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/AddQuestion" />
+        android:text="@string/AddQuestion"
+        android:drawableLeft="@drawable/ic_action_new"
+        android:background="@drawable/main_menu_button"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="5dip" />
 
     <Button
         android:id="@+id/btnDeleteQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/DeleteQuestion" />
+        android:text="@string/DeleteQuestion"
+        android:drawableLeft="@drawable/ic_action_discard"
+        android:background="@drawable/main_menu_button"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="5dip" />
 
     <Button
         android:id="@+id/btnShowStatistics"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ShowStatistics" />
+        android:text="@string/ShowStatistics"
+        android:drawableLeft="@drawable/ic_action_view_as_list"
+        android:background="@drawable/main_menu_button"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="5dip" />
+    
+    <Button
+        android:id="@+id/btnExcelOperations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_activity_import_export_excel"
+        android:drawableLeft="@drawable/ic_action_import_export"
+        android:background="@drawable/main_menu_button"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="5dip" />
     
 </LinearLayout>

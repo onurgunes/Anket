@@ -6,7 +6,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".AddQuestion" >
+    tools:context=".AddQuestion"
+	android:background="#ffffff" >
 
     <EditText
         android:id="@+id/txtQuestion"
@@ -38,21 +39,34 @@
 
         <Button
             android:id="@+id/btnAddOption"
-            android:layout_width="wrap_content"
+            android:layout_width="120dip"
             android:layout_height="wrap_content"
-            android:text="@string/AddOption" />
-
-        <Button
-            android:id="@+id/btnDone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btnDone" />
+            android:text="@string/AddOption"
+            android:background="@drawable/default_button"
+            android:textColor="#ffffff"
+            android:layout_margin="2dip"
+            android:drawableLeft="@drawable/ic_action_new" />
 
         <Button
             android:id="@+id/btnDeleteOptions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Temizle" />
+            android:text="@string/clean_options"
+            android:background="@drawable/danger_button"
+            android:textColor="#ffffff"
+            android:layout_margin="2dip"
+            android:drawableLeft="@drawable/ic_action_discard" />
+        
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnDone"
+            android:background="@drawable/success_button"
+            android:textColor="#ffffff"
+            android:layout_margin="2dip" />
+
+        
 
     </LinearLayout>
 

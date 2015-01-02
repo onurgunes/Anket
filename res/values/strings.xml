@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Anket</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ayarlar</string>
     <string name="title_activity_add_question">Soru Ekle</string>
     <string name="title_activity_delete_question">Soru Sil</string>
-    <string name="title_activity_show_statistics">İstatistikleri Göster</string>
+    <string name="title_activity_show_statistics">İstatistikler</string>
     <string name="title_activity_choose_questions">Sorulardan Seç</string>
-    <string name="AddQuestionHint">Soruyu Giriniz</string>
+    <string name="AddQuestionHint">Soru Metni</string>
     <string name="btnDone">Bitti</string>
-    <string name="AddOption">Şık Ekle</string>
+    <string name="AddOption">Seçenek</string>
     <string name="ChooseInExistingQuestion">Varolan Sorulardan Seç</string>
     <string name="AddQuestion">Soru Ekle</string>
     <string name="DeleteQuestion">Soru Sil</string>
-    <string name="ShowStatistics">İstatistikleri Göster</string>
-    <string name="title_activity_survey">Survey</string>
-
+    <string name="ShowStatistics">İstatistikler</string>
+    <string name="title_activity_survey">Anket</string>
+    <string name="finish_survey">Anketi Bitir</string>
+    <string name="title_activity_import_export_excel">Veri Al / Gönder</string>
+    <string name="start_survey">Ankete Başla</string>
+    <string name="add_question_option">Soruya Seçenek Ekle</string>
+    <string name="cancel_to_add_option">Vazgeç</string>
+    <string name="accept_to_add_option">Ekle</string>
+    <string name="clean_options">Temizle</string>
+    <string name="question_added_message_success">Soru başarıyla eklendi!</string>
+    <string name="survey_added_message_success">Anket başarıyla kaydedildi!</string>
+    <string name="error_message">Soru eklenirken bir sorunla karşılaşıldı</string>
+    <string name="question_added_message_warning_1">Soru boş bırakılamaz</string>
+    <string name="question_added_message_warning_2">Seçenek eklemediniz.</string>
+    <string name="statistics_resetted">Veriler başarıyla silindi.</string>
+    <string name="reset_statitics">Verileri Temizle</string>
+	<string name="import_from_excel">Soruları Excel den Al</string>
+    <string name="export_statistics_to_excel">İstatistikleri Excel e Çıkar</string>
+    <string name="export_questions_to_excel">Soruları Excel e Çıkar</string>
+    <string name="import_export_guide">Soru ya da istatistik içe aktar / dışa aktar işlemleriyle ilgili temel bilgilendirme</string>
 </resources>

@@ -34,7 +34,8 @@ public class ChooseQuestions extends Activity implements OnClickListener {
 		btnStartSurvey = (Button) findViewById(R.id.btnStartSurvey);
 		
 		btnStartSurvey.setOnClickListener(this);
-		btnStartSurvey.setText("Ankete Baþla >");
+		btnStartSurvey.setText(getResources().getString(R.string.start_survey));
+		btnStartSurvey.setBackground(getResources().getDrawable(R.drawable.default_button));
 		
 		questionList = db.getAllQuestions();
 		ids = new ArrayList<Integer>();

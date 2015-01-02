@@ -36,10 +36,10 @@ public class Database extends SQLiteOpenHelper {
 		this.onCreate(db);
 	}
 
-	//Veritabanýndaki son sorunun id bilgisini getiren fonksiyon
+	//OK
 	private int getLastQuestionId(){
 		SQLiteDatabase db = this.getReadableDatabase();
-		Cursor cursor = db.rawQuery("SELECT Id FROM " + TABLE_QUESTION + " ORDER BY Id DESC LIMIT 1;", null);
+		Cursor cursor = db.rawQuery("SELECT Id FROM "+ TABLE_QUESTION + " ORDER BY Id DESC LIMIT 1;", null);
 		cursor.moveToFirst();
 //		Log.i("Last id",String.valueOf(cursor.getInt(0)));
 		if(cursor.isNull(0))
@@ -48,7 +48,7 @@ public class Database extends SQLiteOpenHelper {
 		
 	}
 	
-	//Sorular tablosundan soru sayýsýný getiren fonksiyon
+	//OK
 	public int getQuestionCount(){
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.rawQuery("SELECT COUNT(Id) FROM "+ TABLE_QUESTION, null);
@@ -56,7 +56,7 @@ public class Database extends SQLiteOpenHelper {
 		return cursor.getInt(0);
 	}
 	
-	//Soru id sine göre sorunun þýk sayýsýný getiren fonksiyon
+	//OK
 	public int getOptionCount(int questionId){
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.rawQuery("SELECT COUNT(Id) FROM "+ TABLE_OPTIONS + " WHERE SoruId = " + questionId, null);
@@ -64,8 +64,12 @@ public class Database extends SQLiteOpenHelper {
 		return cursor.getInt(0);
 	}
 	
-	//Soru ve soruya ait þýklarý veritabanýna kaydeden fonksiyon
+	//OK
 	public void addQuestionAndOptions(String question, ArrayList<String> options){
+		/*question parametresini sorular tablosuna eklenecek
+		 * daha sonra en son eklenen soru ki bizim eklediðimiz soru olacak bu
+		 * id si alýnýp options parametresinin elemanlarýnýyla birlikte þýklar tablosuna kaydedilecek
+		 * */
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues values = new ContentValues();
 		values.put(QUESTION_COLUMNS[1], question);
@@ -79,18 +83,20 @@ public class Database extends SQLiteOpenHelper {
 			db.insert(TABLE_OPTIONS, null, values);
 		}
 		db.close();
-//		Log.i("Insert Completed","OK");
+//		Log.i("Log","OK");
 	}
 	
-	// Verilen soru id ye ait soru ve þýklarý silen fonksiyon
+	//OK
 	public void deleteQuestionAndItsOptions(int questinId){
+		// Verilen soru id ye ait soru ve þýklarý silen fonksiyon
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.delete(TABLE_OPTIONS, OPTIONS_COLUMNS[1] + "=" + questinId, null);//Seçenekleri sil
 		db.delete(TABLE_QUESTION, QUESTION_COLUMNS[0] + "=" + questinId, null);//Soruyu sil
 	}
 	
-	//Gelen id ye göre sorularý ve o sorularýn þýklarýný getiren fonksiyon
+	//OK
 	public SurveyItem getQuestionAndItsOptionById(int id){
+		//Gelen idlerine göre sorularý ve o sorularýn þýklarýný getiren fonksiyon
 		SurveyItem item = new SurveyItem();
 		SQLiteDatabase db = this.getReadableDatabase();
 		
@@ -118,8 +124,10 @@ public class Database extends SQLiteOpenHelper {
 		return item;
 	}
 	
-	//Vertitabanýndan tüm sorularý ve soru idlerini getiren fonksiyon
+	//OK
 	public ArrayList<Question> getAllQuestions(){
+//		Vertitabanýndan tüm sorularý ve soru idlerini getiren fonksiyon 
+		
 		ArrayList<Question> questions = new ArrayList<Question>();
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.rawQuery("SELECT * FROM "+ TABLE_QUESTION, null);
@@ -129,12 +137,17 @@ public class Database extends SQLiteOpenHelper {
 				 questions.add(new Question(cursor.getInt(0), cursor.getString(1)));
 			}while(cursor.moveToNext());
 		}
+		
+//		for (int i = 0; i < questions.size(); i++) {
+//			Log.i("Soru",questions.get(i).getId() + questions.get(i).getQuestion());
+//		}
 		cursor.close();
 		return questions;
 	}
 	
-	//Ýstatistikleri sýfýrlayan fonksiyon
+	//OK
 	public void resetStatistics(){
+		//secenek tablosundaki SecilimSayisi deðerleri 0 olarak deðiþtirilecek
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues values = new ContentValues();
 		values.put(OPTIONS_COLUMNS[3], 0);
@@ -142,8 +155,9 @@ public class Database extends SQLiteOpenHelper {
 		db.close();
 	}
 	
-	//Doldurulan anketi gerekli tablolara kaydeden fonksiyon
+	//OK
 	public void saveStatistics(int optionId){
+		//Yapýlan anketi kaydeden fonksiyon
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues values = new ContentValues();
 		Cursor cursor = db.rawQuery("SELECT SecilimSayisi FROM "+ TABLE_OPTIONS + " WHERE Id = " + optionId, null);
@@ -157,13 +171,13 @@ public class Database extends SQLiteOpenHelper {
 		db.close();
 	}
 	
-	//Tüm sorulara ait istatistikleri getiren fonksiyon
+	//OK
 	public ArrayList<SurveyItem> getStatistics(){
 		ArrayList<SurveyItem> items = new ArrayList<SurveyItem>();
 		SQLiteDatabase db = this.getReadableDatabase();
 		
 		Cursor cursorQuestion = db.rawQuery("SELECT Id, Soru FROM " + TABLE_QUESTION, null);
-//		Log.i("cursorQuestion.getCount()",String.valueOf( cursorQuestion.getCount() ));
+		//Log.i("cursorQuestion.getCount()",String.valueOf( cursorQuestion.getCount() ));
 		if(cursorQuestion.getCount() > 0){
 			cursorQuestion.moveToFirst();
 			do{
@@ -181,11 +195,11 @@ public class Database extends SQLiteOpenHelper {
 						o.setQuestionId(cursorOptions.getInt(1));
 						o.setOption(cursorOptions.getString(2));
 						o.setSelectedCount(cursorOptions.getInt(3));
-						options.add(o);						
+						options.add(o);					
 					}while(cursorOptions.moveToNext());
-//					Log.i("seçenekler geldi","OK");
+//					Log.i("seçenekler geldi","");
 					item.setOptions(options);
-//					Log.i("Soru",item.getQuestion().getQuestion());
+					//Log.i("Soru",item.getQuestion().getQuestion());
 					items.add(item);
 				}
 				

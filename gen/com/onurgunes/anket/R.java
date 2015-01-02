@@ -21,45 +21,63 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int danger_button=0x7f020000;
+        public static final int default_button=0x7f020001;
+        public static final int ic_action_accept=0x7f020002;
+        public static final int ic_action_discard=0x7f020003;
+        public static final int ic_action_download=0x7f020004;
+        public static final int ic_action_import_export=0x7f020005;
+        public static final int ic_action_new=0x7f020006;
+        public static final int ic_action_upload=0x7f020007;
+        public static final int ic_action_view_as_list=0x7f020008;
+        public static final int ic_launcher=0x7f020009;
+        public static final int main_menu_button=0x7f02000a;
+        public static final int success_button=0x7f02000b;
     }
     public static final class id {
         public static final int Options=0x7f080001;
-        public static final int action_settings=0x7f080013;
+        public static final int action_settings=0x7f080018;
         public static final int btnAddOption=0x7f080003;
-        public static final int btnAddQuestion=0x7f08000c;
-        public static final int btnChooseExistingQuestion=0x7f08000b;
-        public static final int btnDeleteOptions=0x7f080005;
-        public static final int btnDeleteQuestion=0x7f08000d;
-        public static final int btnDone=0x7f080004;
-        public static final int btnFinishSurvey=0x7f080010;
-        public static final int btnResetStatistics=0x7f08000f;
-        public static final int btnShowStatistics=0x7f08000e;
+        public static final int btnAddQuestion=0x7f080010;
+        public static final int btnChooseExistingQuestion=0x7f08000f;
+        public static final int btnDeleteOptions=0x7f080004;
+        public static final int btnDeleteQuestion=0x7f080011;
+        public static final int btnDone=0x7f080005;
+        public static final int btnExcelOperations=0x7f080013;
+        public static final int btnExportQuestions=0x7f08000c;
+        public static final int btnExportStatistics=0x7f08000d;
+        public static final int btnFinishSurvey=0x7f080015;
+        public static final int btnImportQuestions=0x7f08000b;
+        public static final int btnResetStatistics=0x7f080014;
+        public static final int btnShowStatistics=0x7f080012;
         public static final int btnStartSurvey=0x7f080008;
-        public static final int checkRow=0x7f080011;
+        public static final int checkRow=0x7f080016;
         public static final int linearLayout1=0x7f080002;
         public static final int llQuestions=0x7f08000a;
         public static final int llStartSurvey=0x7f080007;
         public static final int scrollView1=0x7f080009;
+        public static final int textView1=0x7f08000e;
         public static final int txtOptions=0x7f080006;
         public static final int txtQuestion=0x7f080000;
-        public static final int txtRow=0x7f080012;
+        public static final int txtRow=0x7f080017;
     }
     public static final class layout {
         public static final int activity_add_question=0x7f030000;
         public static final int activity_choose_questions=0x7f030001;
-        public static final int activity_main=0x7f030002;
-        public static final int activity_show_statistics=0x7f030003;
-        public static final int activity_survey=0x7f030004;
-        public static final int row=0x7f030005;
+        public static final int activity_import_export_excel=0x7f030002;
+        public static final int activity_main=0x7f030003;
+        public static final int activity_show_statistics=0x7f030004;
+        public static final int activity_survey=0x7f030005;
+        public static final int row=0x7f030006;
     }
     public static final class menu {
         public static final int add_question=0x7f070000;
         public static final int choose_questions=0x7f070001;
         public static final int delete_question=0x7f070002;
-        public static final int main=0x7f070003;
-        public static final int show_statistics=0x7f070004;
-        public static final int survey=0x7f070005;
+        public static final int import_export_excel=0x7f070003;
+        public static final int main=0x7f070004;
+        public static final int show_statistics=0x7f070005;
+        public static final int survey=0x7f070006;
     }
     public static final class string {
         public static final int AddOption=0x7f050008;
@@ -68,12 +86,30 @@ public final class R {
         public static final int ChooseInExistingQuestion=0x7f050009;
         public static final int DeleteQuestion=0x7f05000b;
         public static final int ShowStatistics=0x7f05000c;
+        public static final int accept_to_add_option=0x7f050013;
         public static final int action_settings=0x7f050001;
+        public static final int add_question_option=0x7f050011;
         public static final int app_name=0x7f050000;
         public static final int btnDone=0x7f050007;
+        public static final int cancel_to_add_option=0x7f050012;
+        public static final int clean_options=0x7f050014;
+        public static final int error_message=0x7f050017;
+        public static final int export_questions_to_excel=0x7f05001e;
+        public static final int export_statistics_to_excel=0x7f05001d;
+        public static final int finish_survey=0x7f05000e;
+        public static final int import_export_guide=0x7f05001f;
+        public static final int import_from_excel=0x7f05001c;
+        public static final int question_added_message_success=0x7f050015;
+        public static final int question_added_message_warning_1=0x7f050018;
+        public static final int question_added_message_warning_2=0x7f050019;
+        public static final int reset_statitics=0x7f05001b;
+        public static final int start_survey=0x7f050010;
+        public static final int statistics_resetted=0x7f05001a;
+        public static final int survey_added_message_success=0x7f050016;
         public static final int title_activity_add_question=0x7f050002;
         public static final int title_activity_choose_questions=0x7f050005;
         public static final int title_activity_delete_question=0x7f050003;
+        public static final int title_activity_import_export_excel=0x7f05000f;
         public static final int title_activity_show_statistics=0x7f050004;
         public static final int title_activity_survey=0x7f05000d;
     }
@@ -104,5 +140,8 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
+        /**  Question text style 
+         */
+        public static final int QuestionTextStyle=0x7f060002;
     }
 }

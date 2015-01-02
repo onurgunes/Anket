@@ -45,6 +45,7 @@ public class Survey extends Activity implements OnClickListener{
 		
 		//ids önceki ekranda (choosequestions) seçilen soru sayýsýdýr
 		for (int i = 0; i < ids.size(); i++) {
+//			Log.i("ids.size()",String.valueOf(ids.size()));
 			wrapperLayout = new LinearLayout(this);
 			radioGroup = new RadioGroup(this);
 			txtQuestion = new TextView(this);
@@ -61,13 +62,14 @@ public class Survey extends Activity implements OnClickListener{
 			
 			SurveyItem item = db.getQuestionAndItsOptionById(ids.get(i));
 //			Log.i("Seçilme sayýsý", String.valueOf( item.getOptions().get(i).getSelectedCount() ));
-			txtQuestion.setText(item.getQuestion().getQuestion());
+			txtQuestion.setText( i+1 + ". " + item.getQuestion().getQuestion());
+			txtQuestion.setTextSize(20);
 //			Log.i("Soru Id", String.valueOf(item.getQuestion().getId()));
 //			Log.i("Soru", String.valueOf(item.getQuestion().getQuestion()));
 			
 			//ids dizisinin ilk elemanýnýn seçenek sayýsý
 			for (int j = 0; j < optionCount; j++) {
-//				Log.i("Radio butonlar oluþturuluyor","");
+//				Log.i("Radio buton kýsmýna geldi","");
 				RadioButton rButton = new RadioButton(this);
 				rButton.setId(item.getOptions().get(j).getId());
 				rButton.setText(item.getOptions().get(j).getOption());
@@ -79,6 +81,7 @@ public class Survey extends Activity implements OnClickListener{
 			ll.addView(layoutQuestion);
 			ll.addView(wrapperLayout,layoutParams);
 		}
+		
 	}
 
 	@Override
@@ -97,10 +100,10 @@ public class Survey extends Activity implements OnClickListener{
 					db.saveStatistics(rGroup.getCheckedRadioButtonId());
 //					Log.i("Secilen id", String.valueOf( rGroup.getCheckedRadioButtonId() ));
 				}
-				Toast.makeText(Survey.this, "Anket baþarýyla kaydedildi", Toast.LENGTH_SHORT).show();
+				Toast.makeText(Survey.this, getResources().getString(R.string.survey_added_message_success) , Toast.LENGTH_SHORT).show();
 				Survey.this.finish();
 			} catch (Exception e) {
-				Toast.makeText(Survey.this, "Anket sonuçlarý iþlenemedi", Toast.LENGTH_SHORT).show();
+				Toast.makeText(Survey.this, getResources().getString(R.string.error_message), Toast.LENGTH_SHORT).show();
 			}
 		}
 	}
